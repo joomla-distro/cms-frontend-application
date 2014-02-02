@@ -114,7 +114,13 @@ final class App extends AbstractWebApplication implements ContainerAwareInterfac
             if (!is_file($template_path)) {
                 throw new \Exception('Template not found');
             }
-            $this->setBody(str_replace('{component}',$content,file_get_contents($template_path)));
+
+            ob_start();
+            require_once $template_path;
+            $template_content = ob_get_contents();
+            ob_end_clean();
+
+            $this->setBody(str_replace('{component}',$content,$template_content));
         }
         catch (\Exception $exception)
         {
@@ -262,6 +268,18 @@ final class App extends AbstractWebApplication implements ContainerAwareInterfac
     public function getContainer()
     {
         return $this->container;
+    }
+
+    /**
+     * language.
+     *
+     * @return  Language
+     *
+     * @since   1.0
+     */
+    public function getLanguage()
+    {
+        return Language::getInstance();
     }
 
     /**
