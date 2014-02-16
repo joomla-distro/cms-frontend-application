@@ -4,7 +4,7 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace Frontend\Router;
+namespace JoomlaDistro\CmsFrontendApplication\Router;
 
 use Joomla\Application\AbstractApplication;
 use Joomla\Controller\ControllerInterface;

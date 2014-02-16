@@ -4,13 +4,12 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace Frontend;
+namespace JoomlaDistro\CmsFrontendApplication;
 
 use Joomla\Application\AbstractWebApplication;
 use Joomla\Controller\ControllerInterface;
 use Joomla\DI\Container;
 use Joomla\DI\ContainerAwareInterface;
-use Joomla\Language\Language;
 use Joomla\Language\Text;
 use Joomla\Session\Session;
 use Joomla\Registry\Registry;
@@ -19,14 +18,15 @@ use Joomla\Filesystem\Path;
 //@todo fix that
 class_alias('Joomla\Language\Text','JText');
 
-use Frontend\Router\AppRouter;
+use JoomlaDistro\CmsFrontendApplication\Router\AppRouter;
+use JoomlaDistro\CmsFrontendApplication\Language\Language;
 
 /**
  * Application class
  *
  * @since  1.0
  */
-final class App extends AbstractWebApplication implements ContainerAwareInterface
+final class Dispatcher extends AbstractWebApplication implements ContainerAwareInterface
 {
     /**
      * DI Container
